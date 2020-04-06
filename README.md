@@ -1,7 +1,7 @@
 # fah-teamstats
 A Python script that downloads public team data from the [Folding@Home](https://foldingathome.org/) Statistics API and prints it to the console.
 
-![Screenshot of Example Output](https://github.com/ratticon/fah-teamstats/raw/master/fah-teamstats%20screenshot.png)
+![Screenshot of Example Output](https://github.com/ratticon/fah-teamstats/raw/master/fah-teamstats-screenshot.png)
 
 Written in Python 3.7.0 by Benjamin Cooper ([Ratticon](https://ratticon.com)) of [x0ptis](https://stats.foldingathome.org/team/236098)
 
