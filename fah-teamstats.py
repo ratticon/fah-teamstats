@@ -1,5 +1,5 @@
 '''
-fahstats.py
+fah-teamstats.py
 
 Author:     Benjamin Cooper (Ratticon [x0ptis])
 Released:   2020-04-06
