@@ -1,5 +1,5 @@
 '''
-fah-teamstats.py
+fahstats.py
 
 Author:     Benjamin Cooper (Ratticon [x0ptis])
 Released:   2020-04-06
@@ -19,6 +19,11 @@ Enjoy, and keep on foldin'!
 '''
 
 import requests
+from datetime import datetime
+
+
+def get_timestamp():
+    return f"{datetime.now().strftime('%Y-%m-%d %H:%M')}"
 
 
 def get_team_stats_json(team_id):
@@ -68,7 +73,8 @@ def print_team_info(json):
     total_members = len(json['donors'])
     if total_members == 1000:
         total_members = "1000+"
-    print(f"{str('Members: ').ljust(first_col_width)}{total_members}\n")
+    print(f"{str('Members: ').ljust(first_col_width)}{total_members}")
+    print(f"{str('As of: ').ljust(first_col_width)}{get_timestamp()}\n")
 
 
 def print_member_info(json, margin=2, result_limit=20):
