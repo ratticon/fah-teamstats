@@ -19,6 +19,7 @@ Enjoy, and keep on foldin'!
 '''
 
 import requests
+import math
 from datetime import datetime
 
 
@@ -57,6 +58,18 @@ def get_team_stats_json(team_id):
     return response.json()
 
 
+def calculate_team_rank_percentile(rank_integer, total_teams_integer, inverse=False):
+    '''
+    Takes rank and total teams, calculates and returns the ranking percentile.\n
+    Example of inverse=False: 1 of 100 = 99 (Ranks better than 99%)
+    Example of inverse=True: 1 of 100 = 1 (Ranks in top 1%)\n
+    '''
+    percentile = (100 / total_teams_integer) * rank_integer
+    if not inverse:
+        percentile = 100 - percentile
+    return math.ceil(percentile)
+
+
 def print_team_info(json):
     '''
     Reads team info from json and prints to console.
@@ -64,9 +77,10 @@ def print_team_info(json):
     # for key, value in json.items():
     #     print(f"{key}={value}")
     first_col_width = 14
+    rank_percentile = calculate_team_rank_percentile(json['rank'], json['total_teams'], inverse=True)
     print(f"{str('Team: ').ljust(first_col_width)}{json['name']} ({json['team']})")
     print(f"{str('Homepage: ').ljust(first_col_width)}{json['url']}")
-    print(f"{str('Ranked: ').ljust(first_col_width)}{json['rank']} of {json['total_teams']}")
+    print(f"{str('Ranked: ').ljust(first_col_width)}{json['rank']} of {json['total_teams']} (Top {rank_percentile}%)")
     print(f"{str('Score: ').ljust(first_col_width)}{json['credit']}")
     print(f"{str('Work Units: ').ljust(first_col_width)}{json['wus']}")
     print(f"{str('Active CPUS: ').ljust(first_col_width)}{json['active_50']} in last 50 days")
