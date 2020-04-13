@@ -33,7 +33,7 @@ def get_team_stats_json(team_id):
     Returns JSON response.
     Exits on errors.
     '''
-    print(f"\nDownloading statistics for Folding@Home team id {team_id}...")
+    print(f"\nQuerying statistics API for Folding@Home team id {team_id}...", end='')
     # Try API Query
     try:
         response = requests.get(f'https://stats.foldingathome.org/api/team/{team_id}')
@@ -50,11 +50,10 @@ def get_team_stats_json(team_id):
         print("An Unknown Error occurred:\n" + repr(err))
         exit()
     # Check API response is OK
-    if response:
-        print(f'[API Response {response.status_code} - OK]\n')
-    else:
-        print(f'[API Response {response.status_code} - ERROR]\n')
+    if not response:
+        print(f'\nQuery failed. API Response = {response.status_code} - ERROR.')
         exit()
+    print('\n')
     return response.json()
 
 
@@ -136,7 +135,6 @@ def print_member_info(json, margin=2, result_limit=20):
              f"{str(member['wus']).rjust(max_lengths['wus'])}"
         )
         members_printed += 1
-    print()
 
 
 def print_team_data(team_ids=[1], member_result_limit=20):
