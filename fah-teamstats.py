@@ -4,6 +4,7 @@ fahstats.py
 Author:     Benjamin Cooper (Ratticon [x0ptis])
 Released:   2020-04-06
 Written on: Python 3.7.0
+Requires:   requests (2.23.0 at time of writing)
 
 Function:
 Downloads public team data from the Folding@Home Statistics API and prints it
