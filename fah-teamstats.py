@@ -19,6 +19,7 @@ print_team_data(team_ids=[1,2,3])
 Enjoy, and keep on foldin'!
 '''
 
+import argparse
 import requests
 import math
 from datetime import datetime
@@ -149,4 +150,17 @@ def print_team_data(team_ids=[1], member_result_limit=20):
         print_member_info(team_data, result_limit=member_result_limit)
 
 
-print_team_data(team_ids=[236098])
+# Main Code-------------------------------------------------------------------
+
+# Parse command-line arguments
+parser = argparse.ArgumentParser(description="Downloads and prints Folding@Home team statistics")
+parser.add_argument(
+    'team_ids', metavar='#', type=int, nargs='*',
+    help='Team ID(s) to get statistics for'
+)
+args = parser.parse_args()
+
+if args.team_ids:
+    print_team_data(team_ids=args.team_ids)
+else:
+    print_team_data(team_ids=[236098])
