@@ -84,7 +84,7 @@ def print_team_info(json):
     print(f"{str('Ranked: ').ljust(first_col_width)}{json['rank']} of {json['total_teams']} (Top {rank_percentile}%)")
     print(f"{str('Score: ').ljust(first_col_width)}{json['credit']}")
     print(f"{str('Work Units: ').ljust(first_col_width)}{json['wus']}")
-    print(f"{str('Active CPUS: ').ljust(first_col_width)}{json['active_50']} in last 50 days")
+    print(f"{str('Active CPUs: ').ljust(first_col_width)}{json['active_50']} in last 50 days")
     total_members = len(json['donors'])
     if total_members == 1000:
         total_members = "1000+"
@@ -148,6 +148,7 @@ def print_team_data(team_ids=[1], member_result_limit=20):
         team_data = get_team_stats_json(team_id)
         print_team_info(team_data)
         print_member_info(team_data, result_limit=member_result_limit)
+    print()
 
 
 # Main Code-------------------------------------------------------------------
