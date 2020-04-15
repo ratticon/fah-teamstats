@@ -18,7 +18,13 @@ Install [Python 3](https://www.python.org/downloads/) if needed.
 
 Install the [requests](https://pypi.org/project/requests/) library if needed by running `pip install requests`
 
-Download [fahstats.py](https://github.com/ratticon/fah-teamstats/blob/master/fah-teamstats.py) and edit the following line with the team IDs you wish to query:
+Download [fahstats.py](https://github.com/ratticon/fah-teamstats/blob/master/fah-teamstats.py) and run the script with `python fah-teamstats.py`.
+
+By default, the script will download and print statistics for team 236098 (x0ptis). To print the statistics for your team, simply type your team id after the command. For example:
+`python fah-teamstats.py 1234`
+
+## Custom Script
+If you want to bake your team ID(s) into the script, edit the following line with the team IDs you wish to query:
 
 `print_team_data(team_ids=[236098])`
 
@@ -26,6 +32,6 @@ You can query multiple teams by filling the team_ids array like so:
 
 `print_team_data(team_ids=[1,2,3])`
 
-Run the script with `python fah-teamstats.py`
+Then run the script without appending a team number to the command.
 
 Enjoy, and keep on foldin'!
