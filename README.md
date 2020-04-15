@@ -20,7 +20,7 @@ Install the [requests](https://pypi.org/project/requests/) library if needed by 
 
 Download [fahstats.py](https://github.com/ratticon/fah-teamstats/blob/master/fah-teamstats.py) and run the script with `python fah-teamstats.py`.
 
-By default, the script will download and print statistics for team 236098 (x0ptis). To print the statistics for your team, simply type your team id after the command. For example:
+By default, the script will download and print statistics for team 236098 (x0ptis). To print the statistics for your team, simply type your team's numerical ID after the command. For example:
 `python fah-teamstats.py 1234`
 
 ## Custom Script
